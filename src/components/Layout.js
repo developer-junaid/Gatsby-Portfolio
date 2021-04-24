@@ -1,5 +1,6 @@
 import React from "react"
 import Navbar from "./Navbar.js"
+import "../styles/global.css"
 
 export default function Layout({ children }) {
   return (
