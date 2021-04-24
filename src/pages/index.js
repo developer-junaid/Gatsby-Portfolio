@@ -1,10 +1,14 @@
-import { Link } from "gatsby"
+import { graphql, Link } from "gatsby"
 import React from "react"
 import Layout from "../components/Layout"
 import * as styles from "../styles/home.module.css"
+import Img from "gatsby-image"
 
 // Route for this page should be /
-export default function Home() {
+export default function Home({ data }) {
+  // Data
+  console.log(data.file.childImageSharp.fluid)
+
   // Return
   return (
     <Layout>
@@ -17,8 +21,21 @@ export default function Home() {
             My Portfolio Projects
           </Link>
         </div>
-        <img src="/banner.png" alt="site banner" style={{ maxWidth: "100%" }} />
+        <Img fluid={data.file.childImageSharp.fluid} />
       </section>
     </Layout>
   )
 }
+
+// Page Query
+export const query = graphql`
+  query Banner {
+    file(relativePath: { eq: "banner.png" }) {
+      childImageSharp {
+        fluid {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+  }
+`
