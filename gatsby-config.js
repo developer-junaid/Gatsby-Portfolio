@@ -21,5 +21,6 @@ module.exports = {
     title: "Gatsby Portfolio",
     description: "web dev portfolio",
     copyright: "This website is copyright 2021 Developer Junaid",
+    contact: "developerjunaid623@gmail.com",
   },
 }

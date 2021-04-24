@@ -6,7 +6,10 @@ import * as styles from "../../styles/projects.module.css"
 // Route for this page should be /projects
 export default function Projects({ data }) {
   // Data
-  const projects = data.allMarkdownRemark.nodes
+  const projects = data.projects.nodes
+  const contact = data.contact.siteMetadata.contact
+
+  console.log(data)
 
   // Return
   return (
@@ -24,6 +27,7 @@ export default function Projects({ data }) {
             </Link>
           ))}
         </div>
+        <p>Like what you see? Email me at {contact} for a quote!</p>
       </div>
     </Layout>
   )
@@ -32,15 +36,22 @@ export default function Projects({ data }) {
 // Page Query
 export const query = graphql`
   query ProjectsPage {
-    allMarkdownRemark(sort: { fields: frontmatter___date, order: DESC }) {
+    projects: allMarkdownRemark(
+      sort: { fields: frontmatter___date, order: DESC }
+    ) {
       nodes {
-        id
         frontmatter {
           title
           stack
           slug
-          date
         }
+        id
+      }
+    }
+
+    contact: site {
+      siteMetadata {
+        contact
       }
     }
   }
