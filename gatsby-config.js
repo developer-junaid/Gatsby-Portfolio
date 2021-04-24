@@ -7,14 +7,7 @@
 module.exports = {
   /* Your site config here */
   plugins: [
-    // Gatsby filesystem for notes
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `notes`,
-        path: `${__dirname}/src/notes/`,
-      },
-    },
+    "gatsby-transformer-remark",
     // Gatsby filesystem for projects
     {
       resolve: `gatsby-source-filesystem`,
