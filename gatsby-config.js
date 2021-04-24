@@ -6,7 +6,24 @@
 
 module.exports = {
   /* Your site config here */
-  plugins: [],
+  plugins: [
+    // Gatsby filesystem for notes
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `notes`,
+        path: `${__dirname}/src/notes/`,
+      },
+    },
+    // Gatsby filesystem for projects
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `projects`,
+        path: `${__dirname}/src/projects/`,
+      },
+    },
+  ],
   siteMetadata: {
     title: "Gatsby Portfolio",
     description: "web dev portfolio",
