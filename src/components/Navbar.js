@@ -1,10 +1,24 @@
 import React from "react"
-import { Link } from "gatsby"
+import { Link, graphql, useStaticQuery } from "gatsby"
 
 export default function Navbar() {
+  // Query
+  const data = useStaticQuery(graphql`
+    query SiteInfo {
+      site {
+        siteMetadata {
+          title
+        }
+      }
+    }
+  `)
+
+  const { title } = data.site.siteMetadata
+
+  // Return
   return (
     <nav>
-      <h1>Developer Junaid</h1>
+      <h1>{title}</h1>
       <div className="links">
         <Link to="/">Home</Link>
         <Link to="/about">About</Link>
