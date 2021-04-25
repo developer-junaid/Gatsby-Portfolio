@@ -5,8 +5,8 @@
 
 
 # HOMEPAGE
-<img src='/images/NikeSite.png'/>
-<img src='/images/NikeSite.png'/>
+<img src='/projectImages/gatsbyHome.png'/>
+<img src='/projectImages/gatsbyPortfolio.png'/>
 
 
 ### :link:link : https://gatsbyjs-portfolio-site.netlify.app/
